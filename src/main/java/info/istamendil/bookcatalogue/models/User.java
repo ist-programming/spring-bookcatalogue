@@ -54,7 +54,6 @@ public class User implements CredentialsContainer, UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO) /* http://www.objectdb.com/java/jpa/entity/generated */
-
   private Integer id;
 
   @Length(max = 255)

@@ -35,7 +35,7 @@
     <hibernate.version>4.3.8.Final</hibernate.version>
 
     <!-- Bean validation -->
-    <hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
+    <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
 
     <!-- AOP -->
     <aspectj.version>1.8.5</aspectj.version>
@@ -250,17 +250,17 @@
     </dependencies>
   </dependencyManagement>
 
-  <!-- ToDo: Remove due using Java EE >=6 -->
-<!--  <build>
+  <!-- Java EE version >=6 doesn't need web.xml 
+                but war-plugin won't compile WAR without it. -->
+  <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.3</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
     </plugins>
-  </build>-->
+  </build>
 </project>
