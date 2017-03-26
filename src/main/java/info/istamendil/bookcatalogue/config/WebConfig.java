@@ -44,6 +44,8 @@ import info.istamendil.bookcatalogue.models.Book;
 import info.istamendil.bookcatalogue.utils.StringToEntityConverter;
 import info.istamendil.bookcatalogue.models.PublishingHouse;
 import info.istamendil.bookcatalogue.models.UserAuthority;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  *
@@ -55,11 +57,12 @@ import info.istamendil.bookcatalogue.models.UserAuthority;
 public class WebConfig extends WebMvcConfigurerAdapter {
 
   @Bean
-  public UrlBasedViewResolver setupViewResolver() {
-    UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+  public ViewResolver viewResolver() {
+    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
     resolver.setPrefix("/WEB-INF/jsp/");
     resolver.setSuffix(".jsp");
     resolver.setViewClass(JstlView.class);
+    resolver.setRedirectContextRelative(false);
     return resolver;
   }
 
