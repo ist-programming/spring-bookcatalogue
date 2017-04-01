@@ -1,3 +1,7 @@
+# General properties
+# Available profiles: jsp
+spring.profiles.active=jsp
+
 #DB Properties
 db.username = root
 db.password = 

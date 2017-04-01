@@ -38,14 +38,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import info.istamendil.bookcatalogue.models.Book;
 import info.istamendil.bookcatalogue.utils.StringToEntityConverter;
 import info.istamendil.bookcatalogue.models.PublishingHouse;
 import info.istamendil.bookcatalogue.models.UserAuthority;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.context.annotation.Import;
 
 /**
  *
@@ -53,18 +50,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @ComponentScan("info.istamendil.bookcatalogue.controllers")
+@Import({ViewResolverConfig.class})
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {
-
-  @Bean
-  public ViewResolver viewResolver() {
-    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-    resolver.setPrefix("/WEB-INF/jsp/");
-    resolver.setSuffix(".jsp");
-    resolver.setViewClass(JstlView.class);
-    resolver.setRedirectContextRelative(false);
-    return resolver;
-  }
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
