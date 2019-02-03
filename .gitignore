@@ -14,11 +14,18 @@ hs_err_pid*
 # Temp files
 *~
 
-app.properties
+# Maven
 target/
+
+# IDEs
 nbactions.xml
 manifest.mf
 build.xml
 build/
 nbproject/
 nb-configuration.xml
+.idea/
+*.iml
+
+# Project files
+app.properties
