@@ -45,6 +45,7 @@ import info.istamendil.bookcatalogue.models.User;
 import info.istamendil.bookcatalogue.repositories.UserAuthorityRepository;
 import info.istamendil.bookcatalogue.repositories.UserRepository;
 import info.istamendil.bookcatalogue.services.UserService;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -79,12 +80,14 @@ public class UserController {
   @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
   @PreAuthorize("hasRole('ADMIN')")
   public String edit(@PathVariable int id, ModelMap map) {
-    User user = userRepo.findOne(id);
-    if (user == null) {
+    try{
+      User user = userRepo.findById(id).get();
+      map.put("user", user);
+      return showForm(map);
+    }
+    catch(NoSuchElementException ex){
       throw new NotFoundException("user");
     }
-    map.put("user", user);
-    return showForm(map);
   }
 
   @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)

@@ -16,7 +16,7 @@
       Wrong email-password.
     </div>
   </c:if>
-  <form:form class="form-horizontal" method="POST" commandName="loginForm">
+  <form:form class="form-horizontal" method="POST" modelAttribute="loginForm">
     <t:input label="E-mail" path="username" required="true"/>
     <t:password label="Password" path="password" required="true"/>
 

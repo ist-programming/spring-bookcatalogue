@@ -41,6 +41,7 @@ import info.istamendil.bookcatalogue.models.User;
 import info.istamendil.bookcatalogue.models.UserAuthority;
 import info.istamendil.bookcatalogue.repositories.UserAuthorityRepository;
 import info.istamendil.bookcatalogue.repositories.UserRepository;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -73,15 +74,16 @@ public class UserService implements UserDetailsService {
     userRepo.save(user);
   }
   
-  public User updateFullNameAndAuthorities(Integer id, String fullName, Set<UserAuthority> authorities){
-    User user = userRepo.findOne(id);
-    if(user == null){
+  public User updateFullNameAndAuthorities(Integer id, String fullName, Set<UserAuthority> authorities) {
+    try {
+      User user = userRepo.findById(id).get();
+      user.setPasswordRepeat(user.getPassword());
+      user.setFullName(fullName);
+      user.setAuthorities(authorities);
+      return user;
+    } catch (NoSuchElementException ex) {
       throw new EntityNotFoundException("User with id " + id + "has not been found.");
     }
-    user.setPasswordRepeat(user.getPassword());
-    user.setFullName(fullName);
-    user.setAuthorities(authorities);
-    return user;
   }
 
 }

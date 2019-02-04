@@ -11,7 +11,7 @@
   <%--
     Creating own form tags as spring form tags wrappers: http://duckranger.com/2012/07/spring-mvc-and-twitter-bootstrap-customizing-the-input-fields/
   --%>
-  <form:form class="form-horizontal" method="POST" commandName="user">
+  <form:form class="form-horizontal" method="POST" modelAttribute="user">
     <form:hidden path="id" required="true"/>
     <t:input label="Name" path="fullName" required="true"/>
     <div class="form-group">
