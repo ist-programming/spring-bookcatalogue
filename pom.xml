@@ -41,7 +41,7 @@
     <mysql.version>8.0.15</mysql.version>
     
     <!-- Other stuff dependencies -->
-    <jackson.version>2.9.4</jackson.version>
+    <jackson.version>2.9.8</jackson.version>
   </properties>
   
   <dependencies>
