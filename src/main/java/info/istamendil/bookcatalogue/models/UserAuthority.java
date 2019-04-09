@@ -30,8 +30,8 @@ package info.istamendil.bookcatalogue.models;
 
 import java.util.Objects;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 
 /**

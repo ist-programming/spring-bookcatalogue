@@ -37,12 +37,12 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import info.istamendil.bookcatalogue.models.Book;
 import info.istamendil.bookcatalogue.utils.StringToEntityConverter;
 import info.istamendil.bookcatalogue.models.PublishingHouse;
 import info.istamendil.bookcatalogue.models.UserAuthority;
 import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  *
@@ -52,7 +52,7 @@ import org.springframework.context.annotation.Import;
 @ComponentScan("info.istamendil.bookcatalogue.controllers")
 @Import({ViewResolverConfig.class})
 @EnableWebMvc
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
