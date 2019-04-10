@@ -41,6 +41,7 @@ import info.istamendil.bookcatalogue.models.Book;
 import info.istamendil.bookcatalogue.utils.StringToEntityConverter;
 import info.istamendil.bookcatalogue.models.PublishingHouse;
 import info.istamendil.bookcatalogue.models.UserAuthority;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -53,6 +54,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Import({ViewResolverConfig.class})
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
+
+  @Autowired
+  private StringToEntityConverter bookGenericConverter;
+  @Autowired
+  private StringToEntityConverter publishingHouseGenericConverter;
+  @Autowired
+  private StringToEntityConverter userAuthorityGenericConverter;
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -74,9 +82,9 @@ public class WebConfig implements WebMvcConfigurer {
 
   @Override
   public void addFormatters(FormatterRegistry formatterRegistry) {
-    formatterRegistry.addConverter(bookGenericConverter());
-    formatterRegistry.addConverter(publishingHouseGenericConverter());
-    formatterRegistry.addConverter(userAuthorityGenericConverter());
+    formatterRegistry.addConverter(bookGenericConverter);
+    formatterRegistry.addConverter(publishingHouseGenericConverter);
+    formatterRegistry.addConverter(userAuthorityGenericConverter);
   }
 
   @Bean
