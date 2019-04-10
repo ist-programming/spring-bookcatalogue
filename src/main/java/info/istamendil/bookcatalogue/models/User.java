@@ -53,7 +53,7 @@ import javax.validation.constraints.Pattern;
 public class User implements CredentialsContainer, UserDetails {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO) /* http://www.objectdb.com/java/jpa/entity/generated */
+  @GeneratedValue(strategy = GenerationType.IDENTITY) /* http://www.objectdb.com/java/jpa/entity/generated */
   private Integer id;
 
   @NotBlank
