@@ -42,7 +42,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Table(name = "user_role")
 public class UserAuthority implements GrantedAuthority{
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO) /* http://www.objectdb.com/java/jpa/entity/generated */
+  @GeneratedValue(strategy=GenerationType.IDENTITY ) /* http://www.objectdb.com/java/jpa/entity/generated */
   private Integer id;
   
   @NotBlank
