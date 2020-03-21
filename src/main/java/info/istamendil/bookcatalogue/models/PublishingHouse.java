@@ -42,7 +42,7 @@ import javax.validation.constraints.*;
 public class PublishingHouse {
   
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY )
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", unique = true, nullable = false)
   private int id;
   

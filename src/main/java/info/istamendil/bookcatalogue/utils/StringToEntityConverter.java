@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.GenericConverter;
@@ -48,7 +48,8 @@ public class StringToEntityConverter implements GenericConverter {
 
   private final Class<?> clazz;
 
-  @PersistenceContext
+  //Or @PersistenceContext ?
+  @Autowired
   private EntityManager em;
 
   public StringToEntityConverter(Class<?> clazz) {

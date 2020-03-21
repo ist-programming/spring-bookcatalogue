@@ -32,8 +32,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.CredentialsContainer;
@@ -49,15 +50,15 @@ import info.istamendil.bookcatalogue.utils.FieldMatch;
 })
 @DynamicUpdate
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User implements CredentialsContainer, UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) /* http://www.objectdb.com/java/jpa/entity/generated */
   private Integer id;
 
-  @Length(max = 255)
   @NotBlank
+  @Length(max = 255)
   @Column(nullable = false)
   private String fullName;
 
@@ -77,8 +78,8 @@ public class User implements CredentialsContainer, UserDetails {
   )
   private Set<UserAuthority> authorities = new HashSet<>();
 
-  @Email
   @NotBlank
+  @Pattern(regexp="^[a-zA-Z0-9_\\.\\-]@[a-zA-Z0-9_\\.\\-]$")
   @Column(nullable = false, unique = true)
   private String username;
 

@@ -62,7 +62,7 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
       if (!returnValue) {
         context.disableDefaultConstraintViolation();
         //In the initialiaze method you get the errorMessage: constraintAnnotation.message();
-        context.buildConstraintViolationWithTemplate(errorMessage).addNode(secondFieldName).addConstraintViolation();
+        context.buildConstraintViolationWithTemplate(errorMessage).addPropertyNode(secondFieldName).addConstraintViolation();
       }
       return returnValue;
     } catch (final Exception ignore) {
