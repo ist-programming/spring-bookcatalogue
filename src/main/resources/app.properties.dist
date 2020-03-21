@@ -1,6 +1,10 @@
-# General properties
+#Spring properties
 # Available profiles: jsp
 spring.profiles.active=jsp
+# To-do: Do we need this with current configurations?
+spring.main.allow-bean-definition-overriding=true
+# Additional debug information. Requests/responses.
+logging.level.web=DEBUG
 
 #DB Properties
 db.username = root

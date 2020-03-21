@@ -21,39 +21,18 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring -->
-        <spring-framework.version>5.1.4.RELEASE</spring-framework.version>
-        <spring-data-jpa.version>2.1.4.RELEASE</spring-data-jpa.version>
-        <spring-security.version>5.1.3.RELEASE</spring-security.version>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-security.version>5.3.0.RELEASE</spring-security.version>
 
-        <!-- Java EE / Java SE dependencies -->
-        <java.web.api.version>8.0.1</java.web.api.version>
+        <!--&lt;!&ndash; Java EE / Java SE dependencies &ndash;&gt;-->
+        <!--<java.web.api.version>8.0.1</java.web.api.version>-->
         <javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
-
-        <!-- Hibernate / JPA -->
-        <hibernate.version>5.4.1.Final</hibernate.version>
-
-        <!-- Bean validation -->
-        <hibernate-validator.version>6.0.14.Final</hibernate-validator.version>
-
-        <!-- AOP -->
-        <aspectj.version>1.9.2</aspectj.version>
 
         <!-- DB dependencies -->
         <mysql.version>8.0.15</mysql.version>
-
-        <!-- Other stuff dependencies -->
-        <jackson.version>2.9.8</jackson.version>
     </properties>
 
     <dependencies>
-        <!-- JAVA stuff -->
-        <!-- Servlet + EJB Lite + JPA + JSP + EL + JSTL + JSF + JTA + JSR-45 + JSR-250 -->
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>${java.web.api.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <!-- JSTL goes additionally due Tomcat behaviour -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -61,116 +40,87 @@
             <version>${javax.servlet.jstl.version}</version>
         </dependency>
 
-        <!-- Spring Framework -->
+        <!-- Spring Boot starters -->
+        <!-- ToDo: check if some starters are not needed -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring-framework.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!-- Could be useful. May be added in future versions. -->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-cache</artifactId>-->
+        <!--<version>${spring-boot.version}</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
 
+        <!-- Stuff for JSP. See https://mkyong.com/spring-boot/spring-boot-hello-world-example-jsp/ -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring-framework.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+            <version>9.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jdt.core.compiler</groupId>
+            <artifactId>ecj</artifactId>
+            <version>4.6.1</version>
+            <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring-framework.version}</version>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring-framework.version}</version>
-        </dependency>
-
-        <!-- Spring Data -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>${spring-data-jpa.version}</version>
-        </dependency>
-
-        <!-- Spring Security -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring-security.version}</version>
-        </dependency>
+        <!-- Other Spring stuff -->
+        <!-- JSP Spring Security Taglib -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
 
-        <!-- Hibernate stuff -->
+
+        <!-- Tools for Spring Boot deploy etc -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate-validator.version}</version>
-            <type>jar</type>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot.version}</version>
+            <optional>true</optional>
         </dependency>
 
-        <!-- AspectJ stuff -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
-        </dependency>
 
         <!-- DB Drivers -->
         <dependency>
@@ -179,20 +129,16 @@
             <version>${mysql.version}</version>
         </dependency>
 
-        <!-- Other stuff -->
-        <!-- Thanks to bad dependency requirenments Jackson must be included explicitly. -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Running Spring Boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.4.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

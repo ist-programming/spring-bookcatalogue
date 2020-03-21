@@ -59,6 +59,7 @@ public class UserController {
   private UserAuthorityRepository userAuthorityRepo;
   @Autowired
   private UserRepository userRepo;
+
   @Autowired
   private UserService userService;
   
