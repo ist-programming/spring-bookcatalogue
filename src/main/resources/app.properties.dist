@@ -1,5 +1,5 @@
 #Spring properties
-# Available profiles: jsp
+# Available profiles: jsp, twig (mutually exclusive)
 spring.profiles.active=jsp
 # To-do: Do we need this with current configurations?
 spring.main.allow-bean-definition-overriding=true

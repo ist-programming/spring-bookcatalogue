@@ -121,6 +121,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Pebble (Twig). There is Spring Boot Starter. Don't use it due explicit bean config. -->
+        <dependency>
+            <groupId>io.pebbletemplates</groupId>
+            <artifactId>pebble-spring5</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+
 
         <!-- DB Drivers -->
         <dependency>

@@ -33,6 +33,8 @@ import javax.persistence.EntityNotFoundException;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.validation.groups.Default;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -100,6 +102,7 @@ public class UserController {
     ModelMap map
   ) {
     User user;
+
     try{
       user = userService.updateFullNameAndAuthorities(id, data.getFullName(), data.getAuthorities());
     }

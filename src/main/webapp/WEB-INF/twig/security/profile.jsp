@@ -10,7 +10,7 @@
   <dl>
     <dt>Name</dt>
       <%-- For additional (our entity) details use principal.*** --%>
-      <dd><security:authentication property="principal.fullName"/></dd>
+      <dd><security:authentication property="principal.fullName" /></dd>
     <dt>Email</dt>
       <%-- Name or principal.username - see documentation --%>
       <dd><security:authentication property="principal.username" /></dd>

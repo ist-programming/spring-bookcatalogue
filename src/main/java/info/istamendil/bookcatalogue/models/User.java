@@ -70,7 +70,7 @@ public class User implements CredentialsContainer, UserDetails {
   @Transient
   private String passwordRepeat;
 
-  @ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.MERGE})
+  @ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.MERGE, CascadeType.PERSIST})
   @JoinTable(
     name = "user_user_role",
     joinColumns = @JoinColumn(name = "user"),

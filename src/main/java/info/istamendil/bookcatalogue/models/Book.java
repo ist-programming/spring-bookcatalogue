@@ -44,7 +44,7 @@ public class Book{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", unique = true, nullable = false)
   private int id;
-  
+
   @Length(max = 65535)
   @Column(columnDefinition="text")
   private String description;

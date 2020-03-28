@@ -32,6 +32,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -79,13 +80,14 @@ public class BookController {
     return showForm(map);
   }
 
+
   @RequestMapping(value = "/book/new", method = RequestMethod.POST)
   @PreAuthorize("hasRole('ADMIN')")
   public String addHandler(
     RedirectAttributes redirectAttributes,
     @ModelAttribute("book") @Valid Book book,
     BindingResult result,
-    ModelMap map
+    ModelMap map, Authentication auth
   ) {
     if (result.hasErrors()) {
       return showForm(map);

@@ -30,6 +30,7 @@ package info.istamendil.bookcatalogue.config;
 
 import javax.validation.Validator;
 
+import info.istamendil.bookcatalogue.config.viewresolver.PebbleViewResolverConfig;
 import info.istamendil.bookcatalogue.config.viewresolver.JspViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -52,7 +53,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @ComponentScan("info.istamendil.bookcatalogue.controllers")
-@Import({JspViewResolver.class})//All ViewResolver configurations
+@Import({PebbleViewResolverConfig.class, JspViewResolver.class})//All ViewResolver configurations
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 

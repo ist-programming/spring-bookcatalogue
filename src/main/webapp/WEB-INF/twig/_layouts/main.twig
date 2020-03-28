@@ -1,0 +1,32 @@
+{#{% spaceless %}#} {# ToDo: Check what's wrong with this extension #}
+{% if messageType == "success" %}
+    {% set messageClass = "text-success" %}
+{% elseif messageType == "fail" %}
+    {% set messageClass = "text-danger" %}
+{% endif %}
+{#{% endspaceless %}#}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Book Catalogue{{ (title is not empty)? (" :: "~title) : "" }}
+    </title>
+
+    {# ToDo: Add context #}
+    <script type="text/javascript" src="{{ fullUri("/js/jquery-2.1.3.min.js") }}"></script>
+    <script type="text/javascript" src="{{ fullUri("/js/bootstrap.min.js") }}"></script>
+
+    <link href="{{ fullUri("/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ fullUri("/css/style.css") }}" rel="stylesheet">
+</head>
+<body>
+{#{% include "/WEB-INF/pebble/_blocks/menu_main.twig" %}#}
+<div class="container">
+    {% if message is not empty %}
+        <div class="global-message {{ messageClass }}">{{message}}</div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
