@@ -7,7 +7,7 @@
 
     <groupId>info.istamendil</groupId>
     <artifactId>spring-bookcatalogue</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>0.1</version>
 
     <name>Book Catalogue</name>
