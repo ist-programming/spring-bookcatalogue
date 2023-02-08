@@ -28,6 +28,8 @@
  */
 package info.istamendil.bookcatalogue.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -47,6 +49,7 @@ public class PublishingHouse {
   private int id;
   
   @OneToMany(mappedBy = "publishingHouse", fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Book> books = new ArrayList<Book>();
   
   @NotNull
