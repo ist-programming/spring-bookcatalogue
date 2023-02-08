@@ -79,7 +79,7 @@ public class User implements CredentialsContainer, UserDetails {
   private Set<UserAuthority> authorities = new HashSet<>();
 
   @NotBlank
-  @Pattern(regexp="^[a-zA-Z0-9_\\.\\-]@[a-zA-Z0-9_\\.\\-]$")
+  @Pattern(regexp="^[a-zA-Z0-9_\\.\\-]+@[a-zA-Z0-9_\\.\\-]+$")
   @Column(nullable = false, unique = true)
   private String username;
 
